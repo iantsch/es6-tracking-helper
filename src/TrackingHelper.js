@@ -101,8 +101,8 @@ export default class TrackingHelper{
    * @param {Node} event.target - event target
    * @returns {TrackingHelper} - This tracking helper instance
    */
-  onClick(event) {
-    let node = event.target;
+  onClick(event = {}) {
+    let node = event.target || {dataset: {}};
 
     if (!node.dataset[this.options.dataset.type]) {
       return;
@@ -170,7 +170,7 @@ export default class TrackingHelper{
         let trackingData = tracker[options.type](options);
         tracker.track(trackingData);
       } else if (this.options.debug) {
-        warn(`Tracking type ${options.type} in ${tracker.getClassName()} not available`);
+        warn(`Tracking type ${options.type} in ${tracker.getName()} not available`);
       }
     });
     return this;
