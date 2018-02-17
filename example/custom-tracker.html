@@ -15,10 +15,14 @@
                 return 'CustomTracker'
             }
             event(options) {
-                return `event ${options.name}`;
+                options.category = options.category || this.options.category;
+                options.action = options.action || this.options.action;
+                return options;
             }
             custom(options) {
-                return `custom ${options.name}`;
+                options.category = options.category || this.options.category;
+                options.action = options.action || this.options.action;
+                return options;
             }
             track(optionsFromEvent) {
                 logObject(optionsFromEvent)
@@ -28,7 +32,16 @@
         let trackingHelper = new TrackingHelper({
             debug: true,
             pageName: 'tracking-helper',
-            availableTracker: {'custom': CustomTracker}
+            availableTracker: {'custom': CustomTracker},
+            category: 'CustomGlobalCategory',
+            action: 'CustomGlobalAction',
+            dataset: {
+                type: 'track:type',
+                category: 'track:category',
+                action: 'track:action',
+                name: 'track:name',
+                nonInteraction: 'track:non_interaction'
+            }
         });
 
         trackingHelper.add('custom');
@@ -37,8 +50,8 @@
     </script>
 </head>
 <body>
-<a href="#" data-tracking-type="event" data-tracking-name="click-track-event">Track Event</a><br>
-<a href="#" data-tracking-type="pageview" data-tracking-name="custom-pageview">Track Pageview (Not implemented)</a><br>
-<a href="#" data-tracking-type="custom" data-tracking-name="custom-tracking-method">Track Custom</a>
+<a href="#" data-track:type="event" data-track:name="click-track-event" data-track:non_interaction="true">Track Event</a><br>
+<a href="#" data-track:type="pageview" data-track:name="custom-pageview">Track Pageview (Not implemented)</a><br>
+<a href="#" data-track:type="custom" data-track:name="custom-tracking-method" data-track:action="CustomTrackAction">Track Custom</a>
 </body>
 </html>
