@@ -1,6 +1,6 @@
 {
   "name": "es6-tracking-helper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ES6 tracking helper",
   "main": "src/TrackingHelper.js",
   "directories": {
