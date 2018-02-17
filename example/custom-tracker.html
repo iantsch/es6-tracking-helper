@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Custom Tracker</title>
+    <script type="module">
+        import {logObject} from '../src/Utils.js';
+        import TrackingHelper from '../src/TrackingHelper.js';
+
+        class CustomTracker {
+            constructor(options) {
+                this.options = options;
+            }
+            getClassName() {
+                return 'CustomTracker'
+            }
+            getPageView(options) {
+                return `pageview ${options.name}`;
+            }
+            getEvent(options) {
+                return `event ${options.name}`;
+            }
+            customMethod(options) {
+                return `custom ${options.name}`;
+            }
+            track(optionsFromEvent) {
+                logObject(optionsFromEvent)
+            }
+        }
+
+        let trackingHelper = new TrackingHelper({
+            debug: true,
+            pageName: 'tracking-helper',
+            availableTracker: {'custom': CustomTracker}
+        });
+
+        trackingHelper.add('custom', 'customMethod');
+
+    </script>
+</head>
+<body>
+<a href="#" data-tracking-type="event" data-tracking-name="click-track-event">Track Event</a><br>
+<a href="#" data-tracking-type="pageview" data-tracking-name="custom-pageview">Track Pageview</a><br>
+<a href="#" data-tracking-type="custom" data-tracking-name="custom-tracking-method">Track Custom</a>
+</body>
+</html>

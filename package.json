@@ -1,0 +1,35 @@
+{
+  "name": "es6-tracking-helper",
+  "version": "0.1.0",
+  "description": "ES6 tracking helper",
+  "main": "src/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {
+    "babel-jest": "^20.0.3",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.5.2",
+    "jest": "^20.0.4"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iantsch/es6-tracking-helper.git"
+  },
+  "keywords": [
+    "google analytics",
+    "google tagmanager",
+    "analytics",
+    "tagmanager",
+    "es6"
+  ],
+  "author": "Christian Tschugg",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iantsch/es6-tracking-helper/issues"
+  },
+  "homepage": "https://github.com/iantsch/es6-tracking-helper#readme"
+}

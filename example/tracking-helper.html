@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tracking Helper</title>
+    <script type="module">
+        import TrackingHelper from '../src/TrackingHelper.js';
+
+        //Mock Tracker
+        window.ga = function() {};
+        window._gaq = { push: function() {} };
+        window.dataLayer = { push: function() {} };
+
+        let trackingHelper = new TrackingHelper({
+            debug: true,
+            pageName: 'tracking-helper'
+        });
+
+    </script>
+</head>
+<body>
+<a href="#" data-tracking-type="event" data-tracking-name="click-track-event">Track Event</a><br>
+<a href="#" data-tracking-type="event" data-tracking-name="click-track-event-non-interaction" data-tracking-non-interaction="true">Track Event (No Interaction)</a><br>
+<a href="#" data-tracking-type="event" data-tracking-name="click-track-event-non-global-action-category" data-tracking-action="Other" data-tracking-category="Other">Track Event (Other action/category)</a><br>
+<a href="#" data-tracking-type="pageview" data-tracking-name="default-pageview">Track Pageview</a><br>
+<a href="#" data-tracking-type="pageview" data-tracking-name="customized-pageview" data-tracking-action="Other">Track Pageview (Other action [GTM only])</a>
+</body>
+</html>

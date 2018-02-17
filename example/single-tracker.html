@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Single Tracker</title>
+    <script type="module">
+        import TrackingHelper, {Tracker} from '../src/TrackingHelper.js';
+
+        //Mock Tracker
+        window.dataLayer = { push: function() {} };
+
+        let trackingHelper = new TrackingHelper({
+            debug: true,
+            pageName: 'tracking-helper',
+            availableTracker: {'gtm': Tracker.GoogleTagManager}
+        });
+
+    </script>
+</head>
+<body>
+<a href="#" data-tracking-type="event" data-tracking-name="click-track-event">Track Event</a>
+</body>
+</html>
