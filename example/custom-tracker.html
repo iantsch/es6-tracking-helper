@@ -11,16 +11,13 @@
             constructor(options) {
                 this.options = options;
             }
-            getClassName() {
+            getName() {
                 return 'CustomTracker'
             }
-            getPageView(options) {
-                return `pageview ${options.name}`;
-            }
-            getEvent(options) {
+            event(options) {
                 return `event ${options.name}`;
             }
-            customMethod(options) {
+            custom(options) {
                 return `custom ${options.name}`;
             }
             track(optionsFromEvent) {
@@ -34,13 +31,14 @@
             availableTracker: {'custom': CustomTracker}
         });
 
-        trackingHelper.add('custom', 'customMethod');
+        trackingHelper.add('custom');
+        trackingHelper.remove('pageview');
 
     </script>
 </head>
 <body>
 <a href="#" data-tracking-type="event" data-tracking-name="click-track-event">Track Event</a><br>
-<a href="#" data-tracking-type="pageview" data-tracking-name="custom-pageview">Track Pageview</a><br>
+<a href="#" data-tracking-type="pageview" data-tracking-name="custom-pageview">Track Pageview (Not implemented)</a><br>
 <a href="#" data-tracking-type="custom" data-tracking-name="custom-tracking-method">Track Custom</a>
 </body>
 </html>

@@ -49,10 +49,10 @@ export default class TrackingHelper{
     );
     this.tracker = [];
     this.isTracking = false;
-    this.types = {
-      'event': 'getEvent',
-      'pageview': 'getPageView'
-    };
+    this.types = [
+      'event',
+      'pageview'
+    ];
 
     let {context, availableTracker, tracker, dataset, ...trackerOptions} = this.options;
     Object.keys(this.options.availableTracker).map(key => {
@@ -120,32 +120,31 @@ export default class TrackingHelper{
   }
 
   /**
-   * @param {string} type - tracking type
-   * @param {string} method - method name in tracker(s)
+   * @param {string} type - tracking type/method name
    * @returns {TrackingHelper} - This tracking helper instance
    */
-  add(type, method) {
-    if (this.types.hasOwnProperty(type)) {
+  add(type) {
+    if (this.types.indexOf(type) > -1) {
       if (this.options.debug) {
         warn(`Tracking type ${type} already exists.`);
       }
     } else {
-      this.types[type] = method;
+      this.types.push(type);
     }
     return this;
   }
 
   /**
-   * @param {string} type - tracking type
+   * @param {string} type - tracking type/method name
    * @returns {TrackingHelper} - This tracking helper instance
    */
   remove(type) {
-    if (!this.types.hasOwnProperty(type)) {
+    if (this.types.indexOf(type) < 0) {
       if (this.options.debug) {
         warn(`Cannot remove tracking type ${type}.`);
       }
     } else {
-      delete this.types[type];
+      this.types = this.types.filter(t => t !== type);
     }
     return this;
   }
@@ -160,20 +159,18 @@ export default class TrackingHelper{
    * @returns {TrackingHelper} - This tracking helper instance
    */
   track(options) {
-    if (!this.types.hasOwnProperty(options.type)) {
+    if (this.types.indexOf(options.type) < 0) {
       if (this.options.debug) {
-        error(`Tracking type ${options.type} not registered. Add with this.add(type, method)`);
+        error(`Tracking type ${options.type} not registered. Add with this.add(type)`);
       }
       return this;
     }
-
-    let type = this.types[options.type];
     this.tracker.map(tracker => {
-      if (type in tracker) {
-        let trackingData = tracker[type](options);
+      if (options.type in tracker) {
+        let trackingData = tracker[options.type](options);
         tracker.track(trackingData);
       } else if (this.options.debug) {
-        warn(`Tracking type ${type} in ${tracker.getClassName()} not available`);
+        warn(`Tracking type ${options.type} in ${tracker.getClassName()} not available`);
       }
     });
     return this;

@@ -21,7 +21,7 @@ test('Track with one tracker', () => {
   let i = 0;
 
   class OneTracker {
-    getEvent() {
+    event() {
       i += 2
     }
     track() {}
@@ -42,7 +42,7 @@ test('Track with multiple trackers', () => {
   let i = 0;
 
   class MultiTracker {
-    getEvent() {
+    event() {
       i += 2
     }
     track() {}
@@ -65,7 +65,7 @@ test('Adding and removing tracking types', () => {
 
   expect(Object.keys(trackingHelper.types).length).toEqual(2);
 
-  trackingHelper.add('custom', 'customMethod');
+  trackingHelper.add('custom');
 
   expect(Object.keys(trackingHelper.types).length).toEqual(3);
 
@@ -78,7 +78,7 @@ test('Track with custom tracking type', () => {
   let i = 0;
 
   class CustomMethodTracker {
-    customMethod() {
+    custom() {
       i += 2
     }
     track() {}
@@ -88,7 +88,7 @@ test('Track with custom tracking type', () => {
     availableTracker: {'mock': CustomMethodTracker }
   });
 
-  trackingHelper.add('custom', 'customMethod');
+  trackingHelper.add('custom');
 
   expect(i).toEqual(0);
 
@@ -102,7 +102,7 @@ test('Tracking type doesn\'t exist in Tracker', () => {
   let i = 0;
 
   class NonExistingMethodTracker {
-    getEvent() {
+    event() {
       i += 2
     }
     track() {}

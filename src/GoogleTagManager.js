@@ -13,16 +13,16 @@ export default class GoogleTagManager {
       options
     );
   }
-  static getClassName() { return 'GoogleTagManager'; }
-  getClassName() { return GoogleTagManager.getClassName(); }
-  getPageView(options) {
+  static getName() { return 'GoogleTagManager'; }
+  getName() { return GoogleTagManager.getName(); }
+  pageview(options) {
     return {
       event: 'Virtual Pageview',
       pageNameVirtual: this.options.pageName ? `${this.options.pageName.replace(/(\/)+$/, '')}/${options.name.replace(/(\/)+$/, '')}` : options.name,
       virtualPath: options.action || this.options.action
     }
   }
-  getEvent(options) {
+  event(options) {
     return {
       event: 'ga_event',
       eventCategory: options.category || this.options.category,
@@ -35,17 +35,17 @@ export default class GoogleTagManager {
     try {
       if (typeof window.dataLayer === 'undefined') {
         if (this.options.debug) {
-          error('window.dataLayer object not found', 'GoogleTagManager');
+          error('window.dataLayer object not found', this.getName());
         }
         return;
       }
       if (this.options.debug) {
-        logObject(trackingObject, 'GoogleTagManager');
+        logObject(trackingObject, this.getName());
       }
       window.dataLayer.push(trackingObject);
     } catch (e) {
       if (this.options.debug) {
-        error('Unkown error', 'GoogleTagManager');
+        error('Unkown error', this.getName());
       }
     }
   }

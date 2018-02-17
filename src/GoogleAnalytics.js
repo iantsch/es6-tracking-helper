@@ -13,16 +13,16 @@ export default class GoogleAnalytics{
       options
     );
   }
-  static getClassName() { return 'GoogleAnalytics'; }
-  getClassName() { return GoogleAnalytics.getClassName(); }
-  getPageView(options) {
+  static getName() { return 'GoogleAnalytics:ga'; }
+  getName() { return GoogleAnalytics.getName(); }
+  pageview(options) {
     return [
       'send',
       'pageview',
       this.options.pageName ? `${this.options.pageName.replace(/(\/)+$/, '')}/${options.name.replace(/(\/)+$/, '')}` : options.name
     ];
   }
-  getEvent(options) {
+  event(options) {
     return [
       'send',
       'event',
@@ -36,17 +36,17 @@ export default class GoogleAnalytics{
     try {
       if (typeof window.ga === 'undefined') {
         if (this.options.debug) {
-          error('ga object not found', 'GoogleAnalytics:ga');
+          error('ga object not found', this.getName());
         }
         return;
       }
       if (this.options.debug) {
-        logObject(trackingArray, 'GoogleAnalytics:ga');
+        logObject(trackingArray, this.getName());
       }
       window.ga(...trackingArray);
     } catch (e) {
       if (this.options.debug) {
-        error('Unkown error', 'GoogleAnalytics:ga');
+        error('Unkown error', this.getName());
       }
     }
   }

@@ -61,14 +61,13 @@ Stop listening for clicks on nodes with tracking data attributes
 
 Click handler for nodes with tracking data attributes
 
-#### add(type, method) ⇨ ``TrackingHelper``
+#### add(type) ⇨ ``TrackingHelper``
 
 Adds a tracking type
 
 | Parameter | Type | Description |
 |---|---|---|
-| type | ``String`` | Name used to identify type in data attributes |
-| method | ``String`` | Method in Tracker(s) |
+| type | ``String`` | tracking method type used to identify type in data attributes |
 
 *Returns*: ``TrackingHelper`` - This tracking helper instance
 
@@ -78,7 +77,7 @@ Removes a tracking type
 
 | Parameter | Type | Description |
 |---|---|---|
-| type | ``String`` | Name used to identify type in data attributes |
+| type | ``String`` | tracking method type used to identify type in data attributes |
 
 *Returns*: ``TrackingHelper`` - This tracking helper instance
 
