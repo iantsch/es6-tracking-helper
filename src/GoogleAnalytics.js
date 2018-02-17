@@ -26,8 +26,8 @@ export default class GoogleAnalytics{
     return [
       'send',
       'event',
-      options.category ? options.category : this.options.category,
-      options.action ? options.action : this.options.action,
+      options.category || this.options.category,
+      options.action || this.options.action,
       options.name,
       { nonInteraction : options.nonInteraction ? 1 : 0 }
     ];

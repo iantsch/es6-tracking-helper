@@ -23,7 +23,7 @@ export default class GoogleAnalyticsLegacy{
   event(options) {
     const trackingArray = [
       '_trackEvent',
-      options.category ? options.category : this.options.category,
+      options.category || this.options.category,
       options.name
     ];
     if (options.nonInteraction) {
