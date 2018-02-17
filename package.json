@@ -20,11 +20,12 @@
     "url": "git+https://github.com/iantsch/es6-tracking-helper.git"
   },
   "keywords": [
-    "google analytics",
-    "google tagmanager",
+    "google",
     "analytics",
+    "tracking-helper",
     "tagmanager",
-    "es6"
+    "es6",
+    "tracking"
   ],
   "author": "Christian Tschugg",
   "license": "MIT",
