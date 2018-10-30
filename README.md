@@ -92,3 +92,6 @@ Iterates over all trackers and tries to invoke the designated tracking type
 ## License
 
 MIT
+
+## Credits
+[@iantsch](https://twitter.com/iantsch) - [web developer](https://mbt.wien) behind this and other project.
