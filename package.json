@@ -1,6 +1,6 @@
 {
   "name": "es6-tracking-helper",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "ES6 tracking helper",
   "main": "src/TrackingHelper.js",
   "directories": {
@@ -9,7 +9,7 @@
   "devDependencies": {
     "babel-jest": "^20.0.3",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.5.2",
+    "babel-preset-env": "^1.7.0",
     "jest": "^20.0.4"
   },
   "scripts": {
@@ -33,5 +33,8 @@
   "bugs": {
     "url": "https://github.com/iantsch/es6-tracking-helper/issues"
   },
-  "homepage": "https://github.com/iantsch/es6-tracking-helper#readme"
+  "homepage": "https://github.com/iantsch/es6-tracking-helper#readme",
+  "dependencies": {
+    "audit": "0.0.6"
+  }
 }

@@ -1,6 +1,6 @@
 # ES6 Tracking Helper
 
-[![licence](https://img.shields.io/badge/licence-MIT-blue.svg?style=flat-square)]() [![tests](https://img.shields.io/badge/tests-8%20passed-brightgreen.svg?style=flat-square)]() [![coverage](https://img.shields.io/badge/coverage-90%25-brightgreen.svg?style=flat-square)]() [![tag](https://img.shields.io/badge/tag-v1.0.1-lightgrey.svg?style=flat-square)]()
+[![licence](https://img.shields.io/badge/licence-MIT-blue.svg?style=flat-square)]() [![tests](https://img.shields.io/badge/tests-8%20passed-brightgreen.svg?style=flat-square)]() [![coverage](https://img.shields.io/badge/coverage-90%25-brightgreen.svg?style=flat-square)]() [![tag](https://img.shields.io/badge/tag-v1.0.2-lightgrey.svg?style=flat-square)]()
 
 A tracking helper built in ES6 with Google Analytics and Google Tag Manager Support built in.
 
