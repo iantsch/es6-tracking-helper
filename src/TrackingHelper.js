@@ -104,7 +104,7 @@ export default class TrackingHelper{
   onClick(event = {}) {
     let node = event.target || {dataset: {}};
 
-    if (!node.dataset[this.options.dataset.type]) {
+    if (typeof node.dataset === 'undefined' || !node.dataset[this.options.dataset.type]) {
       return;
     }
 
