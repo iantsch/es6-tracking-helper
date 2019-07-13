@@ -1,7 +1,7 @@
 import TrackingHelper from '../src/TrackingHelper.js';
 
 
-test('Use built in trackers', () => {
+test('Use built in tracker', () => {
   let i = 0;
 
   const trackingHelper = new TrackingHelper();
@@ -12,12 +12,10 @@ test('Use built in trackers', () => {
 
   expect(i).toEqual(0);
 
-  window.ga = () => { i +=1 };
-  window._gaq = { push: () => {  i +=1 } };
   window.dataLayer = { push: () => { i +=1 } };
   trackingHelper.track({type:'event'});
 
-  expect(i).toEqual(3);
+  expect(i).toEqual(1);
 });
 
 test('Track with one tracker', () => {

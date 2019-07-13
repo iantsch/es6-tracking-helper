@@ -1,11 +1,7 @@
 import {log, warn, error} from "./Utils.js";
-import GoogleAnalyticsLegacy from "./GoogleAnalyticsLegacy.js";
-import GoogleAnalytics from "./GoogleAnalytics.js";
 import GoogleTagManager from "./GoogleTagManager.js";
 
 export const Tracker = {
-  GoogleAnalyticsLegacy: GoogleAnalyticsLegacy,
-  GoogleAnalytics: GoogleAnalytics,
   GoogleTagManager: GoogleTagManager
 };
 

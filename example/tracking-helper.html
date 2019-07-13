@@ -6,10 +6,8 @@
     <script type="module">
         import TrackingHelper from '../src/TrackingHelper.js';
 
-        //Mock Tracker
-        window.ga = function() {};
-        window._gaq = { push: function() {} };
-        window.dataLayer = { push: function() {} };
+        //Mock dataLayer
+        window.dataLayer = [];
 
         let trackingHelper = new TrackingHelper({
             debug: true,
